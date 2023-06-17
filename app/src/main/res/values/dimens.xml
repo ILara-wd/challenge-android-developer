@@ -1,4 +1,0 @@
-<resources>
-    <dimen name="content_margin">8dp</dimen>
-    <dimen name="progress_bar_size">25dp</dimen>
-</resources>
