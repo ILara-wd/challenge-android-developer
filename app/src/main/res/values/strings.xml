@@ -25,5 +25,12 @@
     <string name="photos">PHOTOS</string>
     <string name="known_for">KNOWN FOR</string>
     <string name="highlighted_movie_image">highlighted movie image</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_map">Maps</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_upload">Upload</string>
+    <string name="title_account">Account</string>
+    <string name="title_about_me">About Me</string>
 
 </resources>
