@@ -54,31 +54,23 @@ class HomeFragment : Fragment() {
             binding.popularProgressBar.visibility = if (it) View.VISIBLE else View.GONE
         }
         homeViewModel.popularMovie.observe(this) { movies ->
-            binding.popularRecyclerView.apply {
-                adapter = MovieListAdapter(movies)
-                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-            }
-
-
+            setAdapterToRecyclerView(binding.popularRecyclerView, movies)
         }
         homeViewModel.topRatedMovie.observe(this) { movies ->
-            binding.inTheatersRecyclerView.apply {
-                adapter = MovieListAdapter(movies)
-                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-            }
-
-
+            setAdapterToRecyclerView(binding.inTheatersRecyclerView, movies)
         }
         homeViewModel.discoveryMovie.observe(this) { movies ->
-            binding.upcomingRecyclerView.apply {
-                adapter = MovieListAdapter(movies)
-                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-            }
-
-
+            setAdapterToRecyclerView(binding.upcomingRecyclerView, movies)
         }
         homeViewModel.firstPopularMovie.observe(this) { movie ->
             showMoviePopular(movie)
+        }
+    }
+
+    private fun setAdapterToRecyclerView(recyclerView: RecyclerView, movies: List<Movie>) {
+        recyclerView.apply {
+            adapter = MovieListAdapter(movies)
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         }
     }
 

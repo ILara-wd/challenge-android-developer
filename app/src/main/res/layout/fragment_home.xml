@@ -185,14 +185,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/showAllPopularText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/show_all"
-                        android:textSize="13sp"
-                        app:layout_constraintBottom_toBottomOf="@id/popularText"
-                        app:layout_constraintRight_toRightOf="parent" />
 
                     <ProgressBar
                         android:id="@+id/popularProgressBar"
@@ -236,15 +228,6 @@
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/showAllInTheatersText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/show_all"
-                        android:textSize="13sp"
-                        app:layout_constraintBottom_toBottomOf="@id/inTheatersText"
-                        app:layout_constraintRight_toRightOf="parent" />
 
                     <ProgressBar
                         android:id="@+id/inTheatersProgressBar"
@@ -290,15 +273,6 @@
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/showAllUpcomingText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/show_all"
-                        android:textSize="13sp"
-                        app:layout_constraintBottom_toBottomOf="@id/upcomingText"
-                        app:layout_constraintRight_toRightOf="parent" />
 
                     <ProgressBar
                         android:id="@+id/upcomingProgressBar"
