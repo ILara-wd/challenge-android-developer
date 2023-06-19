@@ -1,5 +1,7 @@
 # challenge-android-developer
 
+[Download APK]()
+
 * Dagger Hilt
 * View Binding
 * Navigation
@@ -17,6 +19,7 @@
 - Storage
 
 > Mejoras a Considerar
+* Storage MVVM - Hilt
 * Agregar Room para mostrar offline
 * Profile -The Movie DB-
 * About Me
