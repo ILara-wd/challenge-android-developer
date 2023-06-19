@@ -32,8 +32,8 @@ Este proyecto encontrarás que fue creado con las siguientes tecnologías:
 # Screenshot Console Firebase
 
 <p align="left"> 
-<img src="screenshot/firestore.png" width="250">
-<img src="screenshot/storage.png" width="250">
+<img src="screenshot/firestore.png" width="500">
+<img src="screenshot/storage.png" width="500">
 
 > Mejoras a Considerar
 * Storage MVVM - Hilt - Update UI
