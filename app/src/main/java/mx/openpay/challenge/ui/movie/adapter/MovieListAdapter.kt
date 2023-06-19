@@ -1,4 +1,4 @@
-package mx.openpay.challenge.ui.adapter
+package mx.openpay.challenge.ui.movie.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -15,7 +15,7 @@ import mx.openpay.challenge.R
 import mx.openpay.challenge.data.ChallengeConstant
 import mx.openpay.challenge.data.model.entity.Movie
 import mx.openpay.challenge.databinding.FragmentMovieBinding
-import mx.openpay.challenge.ui.adapter.MovieListAdapter
+import mx.openpay.challenge.ui.movie.adapter.MovieListAdapter
 
 @AndroidEntryPoint
 class MovieFragment : Fragment() {

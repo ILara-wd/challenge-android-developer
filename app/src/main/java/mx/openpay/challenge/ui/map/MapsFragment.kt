@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ import mx.openpay.challenge.R
 import mx.openpay.challenge.data.ChallengeConstant
 import mx.openpay.challenge.data.model.entity.Place
 import mx.openpay.challenge.tools.DataState
+import mx.openpay.challenge.tools.Utils
 
 @AndroidEntryPoint
 class MapsFragment : Fragment() {
@@ -50,6 +52,7 @@ class MapsFragment : Fragment() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context!!)
         mapFragment?.getMapAsync(callback)
         observers()
+        getLastKnownLocation()
         initCountDownTimer()
     }
 
@@ -60,13 +63,6 @@ class MapsFragment : Fragment() {
                 requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return
         }
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
@@ -95,11 +91,18 @@ class MapsFragment : Fragment() {
         mapsViewModel.savePlaceState.observe(viewLifecycleOwner) { dataState ->
             when (dataState) {
                 is DataState.Success -> {
-                    Toast.makeText(requireContext(), "guardado correctamente", Toast.LENGTH_SHORT)
-                        .show()
+                    Log.d("savePlaceState", getString(R.string.text_saved_success))
+                    Utils.showNotification(
+                        requireActivity(),
+                        getString(R.string.text_saved_success)
+                    )
                 }
                 is DataState.Error -> {
-                    Toast.makeText(requireContext(), "Ha ocurrido un Error", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.text_error),
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
                 else -> Unit
@@ -123,7 +126,11 @@ class MapsFragment : Fragment() {
                     }
                 }
                 is DataState.Error -> {
-                    Toast.makeText(requireContext(), "Ha ocurrido un Error", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.text_error),
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
                 else -> Unit
@@ -136,10 +143,7 @@ class MapsFragment : Fragment() {
         object : CountDownTimer(
             ChallengeConstant.MILLISECONDS_LOCATIONS, ChallengeConstant.MILLISECONDS_INTERVAL
         ) {
-            override fun onTick(millisUntilFinished: Long) {
-                getLastKnownLocation()
-            }
-
+            override fun onTick(millisUntilFinished: Long) = Unit
             override fun onFinish() {
                 initCountDownTimer()
             }
