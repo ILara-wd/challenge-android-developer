@@ -2,7 +2,8 @@
     <string name="app_name">Challenge OpenPay</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="app_notification">App Notification</string>
+    <string name="app_notification_chanel_id">12345</string>
 
     <string name="title_home">Home</string>
     <string name="title_movies">Movies</string>
@@ -32,5 +33,7 @@
     <string name="title_upload">Upload</string>
     <string name="title_account">Account</string>
     <string name="title_about_me">About Me</string>
+    <string name="text_saved_success">Geolocalización guardada correctamente</string>
+    <string name="text_error">Ha ocurrido un Error</string>
 
 </resources>
