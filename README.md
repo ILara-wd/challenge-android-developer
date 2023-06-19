@@ -5,18 +5,16 @@ Este proyecto encontrarás que fue creado con las siguientes tecnologías:
 
 | Tecnología | Descripción |
 | ------ | ------ |
-| Kotlin | Lenguaje de programación Kotlin para Android|
+| Kotlin | Lenguaje de programación para Android|
 | MVVM | Patrón de arquitectura MVVM |
-| Inyección de Dependencias | Dagger Hilt |
+| Dagger Hilt | Inyección de Dependencias |
 | Navigation | Navigation Component |
-| Vinculación de vista | View Binding |
+| View Binding | Vinculación de vista |
 | Clean Architecture | Arquitectura |
-| Mapas | Google Maps |
-| View | Bottom Navigation |
-| Tools Custom | ManagePermissions |
+| Google Maps | Mapas |
+| ManagePermissions | Tools Custom |
 | Firebase | Firestore - Storage |
-| AndroidView | BottomNavigation |
-| Coordenadas | GPS Location |
+| GPS Location | Coordenadas |
 | Retrofit y Corrutinas | Consumir y procesar  API |
 | Fuente de datos | [The Movie DB](https://www.themoviedb.org/documentation/api) |
 
