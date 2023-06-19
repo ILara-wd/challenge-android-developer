@@ -1,8 +1,11 @@
 package mx.openpay.challenge.data
 
+import kotlinx.coroutines.flow.Flow
+import mx.openpay.challenge.tools.DataState
 import mx.openpay.challenge.data.model.Provider
 import mx.openpay.challenge.data.model.entity.Genre
 import mx.openpay.challenge.data.model.entity.Movie
+import mx.openpay.challenge.data.model.entity.Place
 import mx.openpay.challenge.data.network.Service
 import javax.inject.Inject
 
@@ -35,4 +38,11 @@ class Repository @Inject constructor(
         return response
     }
 
+    suspend fun doGetAllPlace(): Flow<DataState<List<Place>>> {
+        return api.getCollection()
+    }
+
+    suspend fun doSavePlaceFirestore(place: Place): Flow<DataState<Boolean>> {
+        return api.savePlaceFirestore(place)
+    }
 }

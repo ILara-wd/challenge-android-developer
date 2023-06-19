@@ -11,4 +11,10 @@
         android:label="@string/title_movies"
         tools:layout="@layout/fragment_movie" />
 
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="mx.openpay.challenge.ui.map.MapsFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_maps" />
+
 </navigation>

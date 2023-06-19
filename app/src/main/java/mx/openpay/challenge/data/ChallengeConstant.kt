@@ -6,6 +6,11 @@ object ChallengeConstant {
     const val API_KEY_NAME = "api_key"
     const val API_KEY_VALUE = "8c3e19ab75799925c7e1fe459a9e72f2"
 
+    const val PLACE_COLLECTION = "place"
+
+    const val MILLISECONDS_LOCATIONS: Long = 300000
+    const val MILLISECONDS_INTERVAL: Long = 1000
+
     const val API_VERSION: Int = 3
     const val BASE_POSTER_URL = "https://image.tmdb.org/t/p/w185"
     const val BASE_BACKDROP_URL = "https://image.tmdb.org/t/p/w780"
