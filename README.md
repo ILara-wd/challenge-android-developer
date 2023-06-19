@@ -1,6 +1,6 @@
 # challenge-android-developer
 
-[Download APK]()
+[Download APK](https://github.com/ILara-wd/challenge-android-developer/blob/feature/firebase_storage/apk/app-challenge.apk)
 
 * Dagger Hilt
 * View Binding
