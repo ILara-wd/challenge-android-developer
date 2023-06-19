@@ -1,6 +1,7 @@
 package mx.openpay.challenge.ui
 
 import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -37,17 +38,22 @@ class HomeActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    private val PermissionsRequestCode = 123
+    private val permissionsRequestCode = 123
     private lateinit var managePermissions: ManagePermissions
 
     private fun verifyStoragePermissions() {
-        val list = listOf(
-            Manifest.permission.POST_NOTIFICATIONS,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-        )
+        val list = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            listOf(
+                Manifest.permission.POST_NOTIFICATIONS,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        } else {
+            listOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        }
         managePermissions =
-            ManagePermissions(this@HomeActivity, list, PermissionsRequestCode)
+            ManagePermissions(this@HomeActivity, list, permissionsRequestCode)
         managePermissions.checkPermissions()
     }
 
