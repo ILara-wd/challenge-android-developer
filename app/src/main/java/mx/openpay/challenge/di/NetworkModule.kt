@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import mx.openpay.challenge.BuildConfig
 import mx.openpay.challenge.data.ChallengeConstant
 import mx.openpay.challenge.data.network.ApiClient
 import okhttp3.OkHttpClient
@@ -25,11 +26,7 @@ object NetworkModule {
         .baseUrl(ChallengeConstant.BASE_URL)
         .client(
             OkHttpClient.Builder()
-                .addInterceptor(
-                    HttpLoggingInterceptor()
-                        .apply {
-                            level = HttpLoggingInterceptor.Level.BODY
-                        })
+                .addInterceptor(loggingInterceptor)
                 .addInterceptor { chain ->
                     val urlWithKey = chain.request().url.newBuilder()
                         .addQueryParameter(
@@ -50,6 +47,10 @@ object NetworkModule {
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level =
+            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+    }
 
     @Singleton
     @Provides
