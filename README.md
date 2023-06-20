@@ -3,20 +3,21 @@
 
 Este proyecto encontrarás que fue creado con las siguientes tecnologías:
 
-| Tecnología | Descripción |
-| ------ | ------ |
-| Kotlin | Lenguaje de programación para Android|
-| MVVM | Patrón de arquitectura MVVM |
-| Dagger Hilt | Inyección de Dependencias |
-| Navigation | Navigation Component |
-| View Binding | Vinculación de vista |
-| Clean Architecture | Arquitectura |
-| Google Maps | Mapas |
-| ManagePermissions | Tools Custom |
-| Firebase | Firestore - Storage |
-| GPS Location | Coordenadas |
-| Retrofit y Corrutinas | Consumir y procesar  API |
-| Fuente de datos | [The Movie DB](https://www.themoviedb.org/documentation/api) |
+| Tecnología            | Descripción                                                  |
+|-----------------------|--------------------------------------------------------------|
+| Kotlin                | Lenguaje de programación para Android                        |
+| MVVM                  | Patrón de arquitectura MVVM                                  |
+| Dagger Hilt           | Inyección de Dependencias                                    |
+| Navigation            | Navigation Component                                         |
+| View Binding          | Vinculación de vista                                         |
+| Clean Architecture    | Arquitectura                                                 |
+| Google Maps           | Mapas                                                        |
+| Room                  | Base de Datos                                                |
+| ManagePermissions     | Tools Custom                                                 |
+| Firebase              | Firestore - Storage                                          |
+| GPS Location          | Coordenadas                                                  |
+| Retrofit y Corrutinas | Consumir y procesar  API                                     |
+| Fuente de datos       | [The Movie DB](https://www.themoviedb.org/documentation/api) |
 
 # Aplicación Prueba
 

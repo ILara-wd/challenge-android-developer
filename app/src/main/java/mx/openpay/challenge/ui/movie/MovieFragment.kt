@@ -66,10 +66,11 @@ class MovieFragment : Fragment() {
             showMoviePopular(movie)
         }
     }
-
     private fun setAdapterToRecyclerView(recyclerView: RecyclerView, movies: List<Movie>) {
+        val adapterMovie = MovieListAdapter(requireContext())
+        adapterMovie.submitList(movies)
         recyclerView.apply {
-            adapter = MovieListAdapter(movies)
+            adapter = adapterMovie
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         }
     }

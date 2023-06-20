@@ -1,16 +1,18 @@
 package mx.openpay.challenge.ui.movie.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import mx.openpay.challenge.data.ChallengeConstant
 import mx.openpay.challenge.data.model.entity.Movie
 import mx.openpay.challenge.databinding.ListItemMovieBinding
 
-class MovieListAdapter(private val movieList: List<Movie>) :
-    RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
+class MovieListAdapter(val context: Context) :
+    ListAdapter<Movie, MovieListAdapter.MovieViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = ListItemMovieBinding
@@ -18,21 +20,31 @@ class MovieListAdapter(private val movieList: List<Movie>) :
         return MovieViewHolder(binding)
     }
 
-    override fun getItemCount() = movieList.size
-
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        with(holder) {
-            with(movieList[position]) {
+        holder.bindTo(getItem(position))
+    }
+
+    inner class MovieViewHolder(private val binding: ListItemMovieBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindTo(item: Movie) {
+            with(item) {
                 binding.titleText.text = title
-                Glide.with(holder.itemView.context)
+                Glide.with(context)
                     .load(ChallengeConstant.getPosterUrl(posterPath.orEmpty()))
                     .into(binding.image)
-                holder.itemView.setOnClickListener {}
             }
         }
     }
 
-    inner class MovieViewHolder(val binding: ListItemMovieBinding) :
-        RecyclerView.ViewHolder(binding.root)
+}
+
+class DiffCallback : DiffUtil.ItemCallback<Movie>() {
+    override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        return oldItem == newItem
+    }
 
 }
