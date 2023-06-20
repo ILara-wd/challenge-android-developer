@@ -41,6 +41,8 @@ class UploadFragment : Fragment() {
         binding.rvImagePicker.adapter = adapter
         binding.rvImagePicker.setHasFixedSize(true)
         binding.rvImagePicker.layoutManager = GridLayoutManager(requireContext(), 4)
+
+        getAllData()
         return root
     }
 
@@ -122,12 +124,14 @@ class UploadFragment : Fragment() {
         _binding = null
     }
 
-    fun getAllData(){
+    private fun getAllData(){
         val storage = Firebase.storage
-        val storageRef = storage.reference.child("images")
-
-        storage
-
+        val storageRef = storage.reference.child("/images").listAll()
+        storageRef.addOnSuccessListener {
+            it.prefixes.forEach {
+                it.name.toString()
+            }
+        }
     }
 
 }
