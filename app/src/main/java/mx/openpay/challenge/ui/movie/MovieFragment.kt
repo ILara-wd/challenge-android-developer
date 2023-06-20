@@ -81,7 +81,8 @@ class MovieFragment : Fragment() {
                 hlNumOfVotes.text =
                     requireActivity().getString(R.string.votes, movie.voteCount.toString())
                 hlMovieTitle.text = movie.title
-                hlRatingBar.rating = (5 * (movie.voteAverage / ChallengeConstant.MAX_RATING))
+                hlRatingBar.rating =
+                    ((5 * (movie.voteAverage ?: (0 / ChallengeConstant.MAX_RATING))))
                 Glide.with(requireContext())
                     .load(ChallengeConstant.getBackdropUrl(movie.posterPath.orEmpty()))
                     .into(binding.hlMovieImage)
